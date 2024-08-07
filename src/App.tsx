@@ -1,6 +1,5 @@
 import { ThemeProvider } from "./components/darkmode/ThemeProvider";
 import Nav from "./components/Nav";
-import ProductCard from "./components/ProductCard";
 
 function App() {
   return (
@@ -9,9 +8,7 @@ function App() {
         <div className="color-container dark:bg-gray-800">
           <Nav />
           <main className="flex items-center justify-center h-screen p-3">
-            <div className="cardwrapper max-w-[600px]">
-              <ProductCard />
-            </div>
+            <div className="cardwrapper max-w-[600px]"></div>
           </main>{" "}
         </div>
       </ThemeProvider>

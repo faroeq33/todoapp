@@ -1,0 +1,11 @@
+you've started a new challenge, this is a copy from a previous project. remove parts that're not relevant to this project.
+
+#Setup
+- copy design files
+- copy readme file
+
+
+# Start assignment
+- Read new assignment
+
+- start new assignment
