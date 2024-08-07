@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 body {
+  font-family: "Josefin Sans", sans-serif;
   /* @apply bg-primary-cream; */
   /* font-family: "montserrat", sans-serif; */
 }

@@ -10,6 +10,17 @@
 - Toggle light and dark mode
 
 - **Bonus**: Drag and drop to reorder items on the list
+## Approach
+Functionality first, then representation. Along with the representation, I will add dark mode and light mode.
+
+Concerns
+Functionality
+- Add, delete, complete, clear completed
+- filter by all, active, completed
+
+Representation
+- Reponsive design
+- darkmode
 
 ## functionality
 - Add create inputfield
