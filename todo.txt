@@ -4,7 +4,6 @@ you've started a new challenge, this is a copy from a previous project. remove p
 - copy design files
 - copy readme file
 
-
 # Start assignment
 - Read new assignment
 
