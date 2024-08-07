@@ -21,12 +21,27 @@ const config = {
     extend: {
       colors: {
         primary: {
-          "dark-cyan": "hsl(158, 36%, 37%)",
-          cream: "hsl(30, 38%, 92%)",
+          "bright-blue": "hsl(220, 98%, 61%)",
+          "check-background": "hsl(233, 11%, 84%)",
         },
         neutral: {
-          "very-dark-blue": "hsl(212, 21%, 14%)",
-          "dark-grayish-blue": "hsl(228, 12%, 48%)",
+          light: {
+            "very-light-gray": "hsl(0, 0%, 98%)",
+            "very-light-grayish-blue": "hsl(236, 33%, 92%)",
+            "light-grayish-blue": "hsl(233, 11%, 84%)",
+            "dark-grayish-blue": "hsl(236, 9%, 61%)",
+            "very-dark-grayish-blue": "hsl(235, 19%, 35%)",
+            "very-dark-blue": "hsl(212, 21%, 14%)",
+          },
+          dark: {
+            "very-dark-blue": "hsl(235, 21%, 11%)",
+            "very-dark-desaturated-blue": "hsl(235, 24%, 19%)",
+            "light-grayish-blue": "hsl(234, 39%, 85%)",
+            "light-grayish-blue-hover": "hsl(236, 33%, 92%)",
+            "dark-grayish-blue": "hsl(234, 11%, 52%)",
+            "very-dark-grayish-blue": "hsl(233, 14%, 35%)",
+            "very-dark-grayish-blue-lighter": "hsl(236, 9%, 61%)",
+          },
         },
       },
 

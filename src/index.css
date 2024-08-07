@@ -4,17 +4,17 @@
 
 body {
   /* @apply bg-primary-cream; */
-  font-family: "montserrat", sans-serif;
+  /* font-family: "montserrat", sans-serif; */
 }
 
 p,
 h1 {
-  font-family: "montserrat", sans-serif;
+  /* font-family: "montserrat", sans-serif; */
 }
 
 h2,
 .font-custom {
-  font-family: "fraunces", sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
 svg {
