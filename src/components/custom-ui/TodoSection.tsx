@@ -42,6 +42,8 @@ function TodoSection() {
   const [todo, setTodo] = useState<Todo>(initialTodos[0]);
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
+  const amount = todos.filter((todo) => !todo.completed).length;
+
   const addTodos = () => {
     setTodos([...todos, todo]);
   };
@@ -98,7 +100,7 @@ function TodoSection() {
         </ul>
         <div className="div">
           <div className="flex justify-between">
-            <div className="bg-white elem">6 items left</div>
+            <div className="bg-white elem">{amount} items left</div>
             <div className="bg-white elem">clear completed</div>
           </div>
         </div>
