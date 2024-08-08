@@ -1,9 +1,5 @@
 import { useRef, useState } from "react";
-type Todo = {
-  id: number;
-  text: string;
-  completed: boolean;
-};
+import TodoList, { Todo } from "../Todo/TodoList";
 
 const initialTodos = [
   {
@@ -38,12 +34,21 @@ const initialTodos = [
   },
 ];
 
+type View = "all" | "active" | "completed";
+
 function TodoSection() {
   const lastId = useRef(initialTodos[initialTodos.length - 1].id);
   const [todo, setTodo] = useState<Todo>(initialTodos[0]);
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
+  const [view, setView] = useState<View>("all");
+
   const amount = todos.filter((todo) => !todo.completed).length;
+
+  const allTodos = todos;
+  const completedTodos = todos.filter((todo) => todo.completed);
+
+  const activeTodos = todos.filter((todo) => !todo.completed);
 
   const addTodos = () => {
     setTodos([...todos, todo]);
@@ -97,21 +102,29 @@ function TodoSection() {
           }
         />
         <input type="submit" value="Add" />
+        {view === "all" && (
+          <TodoList
+            todos={todos}
+            toggleTodoCompleted={toggleTodoCompleted}
+            removeTodo={removeTodo}
+          />
+        )}
+        {view === "active" && (
+          <TodoList
+            todos={activeTodos}
+            toggleTodoCompleted={toggleTodoCompleted}
+            removeTodo={removeTodo}
+          />
+        )}
+        {view === "completed" && (
+          <TodoList
+            todos={completedTodos}
+            toggleTodoCompleted={toggleTodoCompleted}
+            removeTodo={removeTodo}
+          />
+        )}
         <ul className="bg-white">
           {/* temporary bgs, they will be removed because I will controll them in the parent */}
-          {todos.map((todo) => (
-            <div className="flex items-baseline gap-4 todo-row" key={todo.id}>
-              <input
-                type="checkbox"
-                defaultChecked={todo.completed}
-                onChange={() => toggleTodoCompleted(todo.id)}
-              />
-              <li className={todo.completed ? "line-through" : ""}>
-                {todo.text}
-              </li>
-              <button onClick={() => removeTodo(todo.id)}>X</button>
-            </div>
-          ))}
         </ul>
         <div className="div">
           <div className="flex justify-between">
@@ -122,9 +135,9 @@ function TodoSection() {
           </div>
         </div>
         <div className="flex justify-center gap-4">
-          <div>All</div>
-          <div>Active</div>
-          <div>Completed</div>
+          <div onClick={() => setView("all")}>All</div>
+          <div onClick={() => setView("active")}>Active</div>
+          <div onClick={() => setView("completed")}>completed</div>
         </div>
       </form>
     </section>
