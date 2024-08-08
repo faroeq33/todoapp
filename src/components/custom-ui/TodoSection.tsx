@@ -45,11 +45,6 @@ function TodoSection() {
 
   const amount = todos.filter((todo) => !todo.completed).length;
 
-  const allTodos = todos;
-  const completedTodos = todos.filter((todo) => todo.completed);
-
-  const activeTodos = todos.filter((todo) => !todo.completed);
-
   const addTodos = () => {
     setTodos([...todos, todo]);
   };
@@ -86,15 +81,10 @@ function TodoSection() {
     }
   };
 
-  const getView = () => {
-    switch (view) {
-      case "all":
-        return allTodos;
-      case "active":
-        return activeTodos;
-      case "completed":
-        return completedTodos;
-    }
+  const views = {
+    all: todos,
+    active: todos.filter((todo) => !todo.completed),
+    completed: todos.filter((todo) => todo.completed),
   };
 
   return (
@@ -114,7 +104,8 @@ function TodoSection() {
         />
         <input type="submit" value="Add" />
         <TodoList
-          todos={getView()}
+          // takes view from state and passes it to the todos prop
+          todos={views[view]}
           toggleTodoCompleted={toggleTodoCompleted}
           removeTodo={removeTodo}
         />
