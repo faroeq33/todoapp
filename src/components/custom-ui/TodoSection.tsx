@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 type Todo = {
   id: number;
   text: string;
@@ -39,7 +39,12 @@ const initialTodos = [
 ];
 
 function TodoSection() {
-  const [todo, setTodo] = useState<Todo>(initialTodos[0]);
+  const lastId = useRef(initialTodos[initialTodos.length - 1].id);
+  const [todo, setTodo] = useState<Todo>({
+    id: 0,
+    text: "first",
+    completed: false,
+  });
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
   const amount = todos.filter((todo) => !todo.completed).length;
@@ -48,9 +53,12 @@ function TodoSection() {
     setTodos([...todos, todo]);
   };
 
-  const addTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(e.target.value);
-    setTodo({ id: todos.length + 1, text: e.target.value, completed: false });
+  const handleTodoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTodo({
+      id: lastId.current + 1,
+      text: e.target.value,
+      completed: false,
+    });
   };
 
   const toggleTodoCompleted = (id: number) => {
@@ -67,7 +75,14 @@ function TodoSection() {
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    addTodos();
+
+    console.log("submit");
+    console.log("todo", lastId.current);
+    console.log("lastId", lastId.current);
+    if (todo.id !== lastId.current) {
+      addTodos();
+      lastId.current++;
+    }
   };
 
   return (
@@ -77,7 +92,7 @@ function TodoSection() {
           type="text"
           className="w-full p-2 rounded-md"
           placeholder="Add a new todo"
-          onChange={addTodo}
+          onChange={handleTodoChange}
         />
         <input type="submit" value="Add" />
         <ul className="bg-white">
