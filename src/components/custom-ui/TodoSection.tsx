@@ -1,44 +1,72 @@
+import { on } from "events";
+import { useState } from "react";
+type Todo = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
+const initialTodos = [
+  {
+    id: 1,
+    text: "Complete online JavaScript course",
+    completed: true,
+  },
+  {
+    id: 2,
+    text: "Jog around the park 3x",
+    completed: false,
+  },
+  {
+    id: 3,
+    text: "10 minutes meditation",
+    completed: false,
+  },
+  {
+    id: 4,
+    text: "Read for 1 hour",
+    completed: false,
+  },
+  {
+    id: 5,
+    text: "Pick up groceries",
+    completed: false,
+  },
+  {
+    id: 6,
+    text: "Complete Todo App on Frontend Mentor",
+    completed: false,
+  },
+];
+
 function TodoSection() {
-  const todos = [
-    {
-      id: 1,
-      text: "Complete online JavaScript course",
-      completed: true,
-    },
-    {
-      id: 2,
-      text: "Jog around the park 3x",
-      completed: false,
-    },
-    {
-      id: 3,
-      text: "10 minutes meditation",
-      completed: false,
-    },
-    {
-      id: 4,
-      text: "Read for 1 hour",
-      completed: false,
-    },
-    {
-      id: 5,
-      text: "Pick up groceries",
-      completed: false,
-    },
-    {
-      id: 6,
-      text: "Complete Todo App on Frontend Mentor",
-      completed: false,
-    },
-  ];
+  const [todo, setTodo] = useState<Todo>(initialTodos[0]);
+  const [todos, setTodos] = useState<Todo[]>(initialTodos);
+
+  const addTodos = () => {
+    setTodos([...todos, todo]);
+  };
+
+  const addTodo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(e.target.value);
+    setTodo({ id: todos.length + 1, text: e.target.value, completed: false });
+  };
+
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    addTodos();
+  };
+
   return (
     <section className="w-full todo-section">
-      <form action="" className="flex flex-col gap-6">
+      <form action="" className="flex flex-col gap-6" onSubmit={onSubmit}>
         <input
           type="text"
           className="w-full p-2 rounded-md"
           placeholder="Add a new todo"
+          onChange={addTodo}
         />
+        <input type="submit" value="Add" />
         <ul className="bg-white">
           {/* temporary bgs, they will be removed because I will controll them in the parent */}
           {todos.map((todo) => (

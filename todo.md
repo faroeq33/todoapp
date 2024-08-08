@@ -23,7 +23,7 @@ Representation
 - darkmode
 
 ## functionality
-- Add create inputfield
+~~Add create inputfield~~
 - Calculate `1tems left`
 - Add Clear Completed method
 
