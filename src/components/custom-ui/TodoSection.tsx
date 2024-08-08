@@ -53,12 +53,8 @@ function TodoSection() {
     setTodos([...todos, todo]);
   };
 
-  const handleTodoChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setTodo({
-      id: lastId.current + 1,
-      text: e.target.value,
-      completed: false,
-    });
+  const editTodo = (todo: Todo) => {
+    setTodo(todo);
   };
 
   const toggleTodoCompleted = (id: number) => {
@@ -92,7 +88,13 @@ function TodoSection() {
           type="text"
           className="w-full p-2 rounded-md"
           placeholder="Add a new todo"
-          onChange={handleTodoChange}
+          onChange={(e) =>
+            editTodo({
+              id: lastId.current + 1,
+              text: e.target.value,
+              completed: false,
+            })
+          }
         />
         <input type="submit" value="Add" />
         <ul className="bg-white">
