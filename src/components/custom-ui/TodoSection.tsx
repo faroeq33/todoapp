@@ -51,6 +51,18 @@ function TodoSection() {
     setTodo({ id: todos.length + 1, text: e.target.value, completed: false });
   };
 
+  const toggleTodoCompleted = (id: number) => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
+  };
+
+  const removeTodo = (id: number) => {
+    setTodos(todos.filter((todo) => todo.id !== id));
+  };
+
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addTodos();
