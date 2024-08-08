@@ -86,6 +86,17 @@ function TodoSection() {
     }
   };
 
+  const getView = () => {
+    switch (view) {
+      case "all":
+        return allTodos;
+      case "active":
+        return activeTodos;
+      case "completed":
+        return completedTodos;
+    }
+  };
+
   return (
     <section className="w-full todo-section">
       <form action="" className="flex flex-col gap-6" onSubmit={onSubmit}>
@@ -102,27 +113,12 @@ function TodoSection() {
           }
         />
         <input type="submit" value="Add" />
-        {view === "all" && (
-          <TodoList
-            todos={todos}
-            toggleTodoCompleted={toggleTodoCompleted}
-            removeTodo={removeTodo}
-          />
-        )}
-        {view === "active" && (
-          <TodoList
-            todos={activeTodos}
-            toggleTodoCompleted={toggleTodoCompleted}
-            removeTodo={removeTodo}
-          />
-        )}
-        {view === "completed" && (
-          <TodoList
-            todos={completedTodos}
-            toggleTodoCompleted={toggleTodoCompleted}
-            removeTodo={removeTodo}
-          />
-        )}
+        <TodoList
+          todos={getView()}
+          toggleTodoCompleted={toggleTodoCompleted}
+          removeTodo={removeTodo}
+        />
+
         <ul className="bg-white">
           {/* temporary bgs, they will be removed because I will controll them in the parent */}
         </ul>
