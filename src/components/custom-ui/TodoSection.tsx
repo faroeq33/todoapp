@@ -81,7 +81,19 @@ function TodoSection() {
         <ul className="bg-white">
           {/* temporary bgs, they will be removed because I will controll them in the parent */}
           {todos.map((todo) => (
-            <li key={todo.id}>{todo.text}</li>
+            <div className="flex items-baseline gap-4 todo-row" key={todo.id}>
+              <input
+                type="checkbox"
+                defaultChecked={todo.completed}
+                onChange={() => {
+                  toggleTodoCompleted(todo.id);
+                }}
+              />
+              <li className={todo.completed ? "line-through" : ""}>
+                {todo.text}
+              </li>
+              <button onClick={() => removeTodo(todo.id)}>X</button>
+            </div>
           ))}
         </ul>
         <div className="div">
