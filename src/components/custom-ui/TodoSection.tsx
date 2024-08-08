@@ -110,9 +110,6 @@ function TodoSection() {
           removeTodo={removeTodo}
         />
 
-        <ul className="bg-white">
-          {/* temporary bgs, they will be removed because I will controll them in the parent */}
-        </ul>
         <div className="div">
           <div className="flex justify-between">
             <div className="bg-white elem">{amount} items left</div>
