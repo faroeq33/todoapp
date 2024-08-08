@@ -40,11 +40,7 @@ const initialTodos = [
 
 function TodoSection() {
   const lastId = useRef(initialTodos[initialTodos.length - 1].id);
-  const [todo, setTodo] = useState<Todo>({
-    id: 0,
-    text: "first",
-    completed: false,
-  });
+  const [todo, setTodo] = useState<Todo>(initialTodos[0]);
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
   const amount = todos.filter((todo) => !todo.completed).length;
@@ -63,6 +59,10 @@ function TodoSection() {
         todo.id === id ? { ...todo, completed: !todo.completed } : todo
       )
     );
+  };
+
+  const clearCompleted = () => {
+    setTodos(todos.filter((todo) => !todo.completed));
   };
 
   const removeTodo = (id: number) => {
@@ -104,9 +104,7 @@ function TodoSection() {
               <input
                 type="checkbox"
                 defaultChecked={todo.completed}
-                onChange={() => {
-                  toggleTodoCompleted(todo.id);
-                }}
+                onChange={() => toggleTodoCompleted(todo.id)}
               />
               <li className={todo.completed ? "line-through" : ""}>
                 {todo.text}
@@ -118,7 +116,9 @@ function TodoSection() {
         <div className="div">
           <div className="flex justify-between">
             <div className="bg-white elem">{amount} items left</div>
-            <div className="bg-white elem">clear completed</div>
+            <div className="bg-white elem" onClick={clearCompleted}>
+              clear completed
+            </div>
           </div>
         </div>
         <div className="flex justify-center gap-4">
