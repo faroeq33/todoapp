@@ -6,7 +6,7 @@ type TodoListProps = {
 
 function TodoList(props: TodoListProps) {
   return (
-    <>
+    <ul>
       {props.todos.map((todo) => (
         <div className="flex items-baseline gap-4 todo-row" key={todo.id}>
           <input
@@ -18,7 +18,7 @@ function TodoList(props: TodoListProps) {
           <button onClick={() => props.removeTodo(todo.id)}>X</button>
         </div>
       ))}
-    </>
+    </ul>
   );
 }
 
