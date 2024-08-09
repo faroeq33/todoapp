@@ -36,7 +36,11 @@ const initialTodos = [
 
 type View = "all" | "active" | "completed";
 
-function TodoSection() {
+type TodoSectionProps = {
+  className: string;
+};
+
+function TodoSection(props: TodoSectionProps) {
   const lastId = useRef(initialTodos[initialTodos.length - 1].id);
   const [todo, setTodo] = useState<Todo>(initialTodos[0]);
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
@@ -88,11 +92,11 @@ function TodoSection() {
   };
 
   return (
-    <section className="w-full todo-section">
-      <form action="" className="flex flex-col gap-6" onSubmit={onSubmit}>
+    <section className={props.className}>
+      <form action="" className="flex flex-col gap-6 " onSubmit={onSubmit}>
         <input
           type="text"
-          className="w-full p-2 rounded-md"
+          className="w-full p-2 rounded-md dark:bg-neutral-dark-very-dark-desaturated-blue"
           placeholder="Add a new todo"
           onChange={(e) =>
             editTodo({
@@ -112,8 +116,8 @@ function TodoSection() {
 
         <div className="div">
           <div className="flex justify-between">
-            <div className="bg-white elem">{amount} items left</div>
-            <div className="bg-white elem" onClick={clearCompleted}>
+            <div className="">{amount} items left</div>
+            <div className="" onClick={clearCompleted}>
               clear completed
             </div>
           </div>

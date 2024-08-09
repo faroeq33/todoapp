@@ -7,12 +7,12 @@ function App() {
   return (
     <>
       <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
-        <div className=" color-container dark:bg-gray-800">
-          <BackGroundImage />
-          <div className="negativemargin" style={{ marginTop: -150 }}>
-            <Nav />
-            <main className="flex p-4">
-              <TodoSection />
+        <BackGroundImage />
+        <div className="negativemargin" style={{ marginTop: -150 }}>
+          <Nav />
+          <div className="m-4">
+            <main className="flex gap-4">
+              <TodoSection className="w-full todo-section" />
             </main>
           </div>
         </div>

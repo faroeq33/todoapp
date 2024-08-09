@@ -4,13 +4,7 @@
 
 body {
   font-family: "Josefin Sans", sans-serif;
-  /* @apply bg-primary-cream; */
-  /* font-family: "montserrat", sans-serif; */
-}
-
-p,
-h1 {
-  /* font-family: "montserrat", sans-serif; */
+  @apply dark:bg-neutral-dark-very-dark-blue;
 }
 
 h2,

@@ -8,7 +8,10 @@ function TodoList(props: TodoListProps) {
   return (
     <ul>
       {props.todos.map((todo) => (
-        <div className="flex items-baseline gap-4 todo-row" key={todo.id}>
+        <div
+          className="flex items-baseline gap-4 todo-row dark:text-neutral-dark-dark-grayish-blue"
+          key={todo.id}
+        >
           <input
             type="checkbox"
             defaultChecked={todo.completed}
