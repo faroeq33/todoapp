@@ -1,5 +1,12 @@
 import { useRef, useState } from "react";
 import TodoList, { Todo } from "../Todo/TodoList";
+import {
+  darkmodeBg,
+  darkmodeText,
+  gap,
+  padding,
+  roundness,
+} from "../darkmode/colorStyles";
 
 const initialTodos = [
   {
@@ -93,11 +100,11 @@ function TodoSection(props: TodoSectionProps) {
 
   return (
     <section className={props.className}>
-      <form action="" className="flex flex-col gap-6 " onSubmit={onSubmit}>
+      <form action="" className={`flex flex-col ${gap} `} onSubmit={onSubmit}>
         <input
           type="text"
-          className="w-full p-2 rounded-md dark:bg-neutral-dark-very-dark-desaturated-blue"
-          placeholder="Add a new todo"
+          className={`w-full ${padding} ${roundness} ${darkmodeBg} `}
+          placeholder="Create a new todo..."
           onChange={(e) =>
             editTodo({
               id: lastId.current + 1,
@@ -106,26 +113,46 @@ function TodoSection(props: TodoSectionProps) {
             })
           }
         />
-        <input type="submit" value="Add" />
-        <TodoList
-          // takes view from state and passes it to the todos prop
-          todos={views[view]}
-          toggleTodoCompleted={toggleTodoCompleted}
-          removeTodo={removeTodo}
-        />
+        <input type="submit" value="Add" className="hidden" />
+        <div className={darkmodeBg}>
+          <TodoList
+            // takes view from state and passes it to the todos prop
+            todos={views[view]}
+            toggleTodoCompleted={toggleTodoCompleted}
+            removeTodo={removeTodo}
+            className={`${darkmodeBg} ${padding} ${roundness}`}
+          />
 
-        <div className="div">
-          <div className="flex justify-between">
+          <div
+            className={`flex justify-between ${padding} dark:text-neutral-dark-very-dark-grayish-blue`}
+          >
             <div className="">{amount} items left</div>
             <div className="" onClick={clearCompleted}>
               clear completed
             </div>
           </div>
         </div>
-        <div className="flex justify-center gap-4">
-          <div onClick={() => setView("all")}>All</div>
-          <div onClick={() => setView("active")}>Active</div>
-          <div onClick={() => setView("completed")}>completed</div>
+        <div
+          className={`${darkmodeBg} flex justify-center ${gap} ${padding} ${darkmodeText}`}
+        >
+          <div
+            onClick={() => setView("all")}
+            className={view === "all" ? "text-primary-bright-blue" : ""}
+          >
+            All
+          </div>
+          <div
+            onClick={() => setView("active")}
+            className={view === "active" ? "text-primary-bright-blue" : ""}
+          >
+            Active
+          </div>
+          <div
+            onClick={() => setView("completed")}
+            className={view === "completed" ? "text-primary-bright-blue" : ""}
+          >
+            completed
+          </div>
         </div>
       </form>
     </section>

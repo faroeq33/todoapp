@@ -2,14 +2,15 @@ type TodoListProps = {
   todos: Todo[];
   toggleTodoCompleted: (id: number) => void;
   removeTodo: (id: number) => void;
+  className: string;
 };
 
 function TodoList(props: TodoListProps) {
   return (
-    <ul>
+    <ul className={props.className}>
       {props.todos.map((todo) => (
         <div
-          className="flex items-baseline gap-4 todo-row dark:text-neutral-dark-dark-grayish-blue"
+          className="flex items-baseline gap-4 todo-row dark:text-neutral-dark-dark-grayish-blue "
           key={todo.id}
         >
           <input
