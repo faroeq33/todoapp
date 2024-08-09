@@ -12,7 +12,7 @@ type FiltersProps = {
   setView: (view: View) => void;
 };
 
-const hoverState = "hover:dark:text-neutral-dark-light-grayish-blue-hover";
+const hoverState = "hover:text-neutral-dark-light-grayish-blue-hover";
 
 function Filters({ view, setView }: FiltersProps) {
   return (
