@@ -90,12 +90,14 @@ function TodoSection(props: TodoSectionProps) {
     completed: todos.filter((todo) => todo.completed),
   };
 
+  const todoBg = "bg-neutral-light-very-light-gray";
+
   return (
     <section className={props.className}>
       <form action="" className={`flex flex-col ${gap}`} onSubmit={onSubmit}>
         <input
           type="text"
-          className={`w-full ${padding} ${roundness} ${darkmodeBg} `}
+          className={`w-full ${padding} ${roundness}  ${darkmodeBg} `}
           placeholder="Create a new todo..."
           onChange={(e) =>
             editTodo({
@@ -112,11 +114,11 @@ function TodoSection(props: TodoSectionProps) {
             todos={views[view]}
             toggleTodoCompleted={toggleTodoCompleted}
             removeTodo={removeTodo}
-            className={`${darkmodeBg} rounded-t-lg `}
+            className={`${todoBg} ${darkmodeBg} rounded-t-lg shadow-2xl`}
           />
 
           <div
-            className={`flex justify-between ${darkmodeBg} ${padding} dark:text-neutral-dark-very-dark-grayish-blue rounded-b-lg capitalize text-sm`}
+            className={`flex justify-between ${todoBg} ${darkmodeBg} ${padding} dark:text-neutral-dark-very-dark-grayish-blue rounded-b-lg capitalize text-sm`}
           >
             <div className="">{amount} items left</div>
             <div className="" onClick={clearCompleted}>
@@ -124,7 +126,7 @@ function TodoSection(props: TodoSectionProps) {
             </div>
           </div>
         </div>
-        <Filters setView={setView} view={view} />
+        <Filters setView={setView} view={view} className={todoBg} />
       </form>
     </section>
   );

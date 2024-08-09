@@ -1,3 +1,4 @@
+import { cn } from "@/lib/utils";
 import { gap, padding } from "../darkmode/colorStyles";
 
 type TodoListProps = {
@@ -9,10 +10,10 @@ type TodoListProps = {
 
 function TodoList(props: TodoListProps) {
   return (
-    <ul className={props.className}>
+    <ul className={cn("shadow-xl", props.className)}>
       {props.todos.map((todo) => (
         <div
-          className={`flex items-baseline todo-row dark:text-neutral-dark-dark-grayish-blue border-b border-neutral-dark-very-dark-grayish-blue rounded-t-lg  ${gap} ${padding}`}
+          className={`flex items-baseline todo-row dark:text-neutral-dark-dark-grayish-blue border-b  border-neutral-dark-very-dark-grayish-blue/10 rounded-t-lg  ${gap} ${padding}`}
           key={todo.id}
         >
           <input

@@ -5,6 +5,7 @@
 body {
   font-family: "Josefin Sans", sans-serif;
   @apply dark:bg-neutral-dark-very-dark-blue;
+  @apply bg-neutral-light-very-light-grayish-blue;
 }
 
 h2,
