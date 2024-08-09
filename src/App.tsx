@@ -1,12 +1,12 @@
 import BackGroundImage from "./components/custom-ui/BackGroundImage";
-import { ThemeProvider } from "./components/darkmode/ThemeProvider";
 import Nav from "./components/custom-ui/Nav";
 import TodoSection from "./components/custom-ui/TodoSection";
+import ThemeProviderWrapper from "./components/darkmode/ThemeProviderWrapper";
 
 function App() {
   return (
     <>
-      <ThemeProvider defaultTheme="light" storageKey="vite-ui-theme">
+      <ThemeProviderWrapper>
         <BackGroundImage />
         <div className="negativemargin" style={{ marginTop: -150 }}>
           <Nav />
@@ -16,7 +16,7 @@ function App() {
             </main>
           </div>
         </div>
-      </ThemeProvider>
+      </ThemeProviderWrapper>
     </>
   );
 }
