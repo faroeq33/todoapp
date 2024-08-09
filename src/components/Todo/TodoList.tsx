@@ -1,5 +1,7 @@
 import { cn } from "@/lib/utils";
-import { gap, padding } from "../darkmode/colorStyles";
+import { gap } from "../darkmode/colorStyles";
+import CrossIcon from "../icons/CrossIcon";
+import TodoListItemText from "./TodoListItemText";
 
 type TodoListProps = {
   todos: Todo[];
@@ -13,7 +15,7 @@ function TodoList(props: TodoListProps) {
     <ul className={cn("shadow-xl", props.className)}>
       {props.todos.map((todo) => (
         <div
-          className={`flex items-baseline todo-row dark:text-neutral-dark-dark-grayish-blue border-b  border-neutral-dark-very-dark-grayish-blue/10 rounded-t-lg  ${gap} ${padding}`}
+          className={`flex items-baseline todo-row text-neutral-dark-dark-grayish-blue border-b  border-neutral-dark-very-dark-grayish-blue/10 rounded-t-lg  ${gap}   px-4 py-6`}
           key={todo.id}
         >
           <input
@@ -21,16 +23,12 @@ function TodoList(props: TodoListProps) {
             defaultChecked={todo.completed}
             onChange={() => props.toggleTodoCompleted(todo.id)}
           />
-          <li
-            className={
-              todo.completed
-                ? "line-through"
-                : "dark:text-neutral-dark-light-grayish-blue"
-            }
-          >
-            {todo.text}
-          </li>
-          <button onClick={() => props.removeTodo(todo.id)}>X</button>
+          <TodoListItemText todo={todo} />
+          <div className="">
+            <button onClick={() => props.removeTodo(todo.id)}>
+              <CrossIcon />
+            </button>
+          </div>
         </div>
       ))}
     </ul>
@@ -42,4 +40,5 @@ export type Todo = {
   text: string;
   completed: boolean;
 };
+
 export default TodoList;
