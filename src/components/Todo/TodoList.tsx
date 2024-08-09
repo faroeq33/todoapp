@@ -1,3 +1,5 @@
+import { gap, padding } from "../darkmode/colorStyles";
+
 type TodoListProps = {
   todos: Todo[];
   toggleTodoCompleted: (id: number) => void;
@@ -10,7 +12,7 @@ function TodoList(props: TodoListProps) {
     <ul className={props.className}>
       {props.todos.map((todo) => (
         <div
-          className="flex items-baseline gap-4 todo-row dark:text-neutral-dark-dark-grayish-blue "
+          className={`flex items-baseline todo-row dark:text-neutral-dark-dark-grayish-blue border-b border-neutral-dark-very-dark-grayish-blue rounded-t-lg  ${gap} ${padding}`}
           key={todo.id}
         >
           <input

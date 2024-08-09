@@ -11,7 +11,7 @@ function App() {
         <div className="negativemargin" style={{ marginTop: -150 }}>
           <Nav />
           <div className="m-4">
-            <main className="flex gap-4">
+            <main className="flex">
               <TodoSection className="w-full todo-section" />
             </main>
           </div>

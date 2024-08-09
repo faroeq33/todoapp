@@ -1,12 +1,7 @@
 import { useRef, useState } from "react";
 import TodoList, { Todo } from "../Todo/TodoList";
-import {
-  darkmodeBg,
-  darkmodeText,
-  gap,
-  padding,
-  roundness,
-} from "../darkmode/colorStyles";
+import { darkmodeBg, gap, padding, roundness } from "../darkmode/colorStyles";
+import Filters, { View } from "./Filters";
 
 const initialTodos = [
   {
@@ -41,8 +36,6 @@ const initialTodos = [
   },
 ];
 
-type View = "all" | "active" | "completed";
-
 type TodoSectionProps = {
   className: string;
 };
@@ -53,7 +46,6 @@ function TodoSection(props: TodoSectionProps) {
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
   const [view, setView] = useState<View>("all");
-
   const amount = todos.filter((todo) => !todo.completed).length;
 
   const addTodos = () => {
@@ -100,7 +92,7 @@ function TodoSection(props: TodoSectionProps) {
 
   return (
     <section className={props.className}>
-      <form action="" className={`flex flex-col ${gap} `} onSubmit={onSubmit}>
+      <form action="" className={`flex flex-col ${gap}`} onSubmit={onSubmit}>
         <input
           type="text"
           className={`w-full ${padding} ${roundness} ${darkmodeBg} `}
@@ -114,17 +106,17 @@ function TodoSection(props: TodoSectionProps) {
           }
         />
         <input type="submit" value="Add" className="hidden" />
-        <div className={darkmodeBg}>
+        <div className={""}>
           <TodoList
             // takes view from state and passes it to the todos prop
             todos={views[view]}
             toggleTodoCompleted={toggleTodoCompleted}
             removeTodo={removeTodo}
-            className={`${darkmodeBg} ${padding} ${roundness}`}
+            className={`${darkmodeBg} rounded-t-lg `}
           />
 
           <div
-            className={`flex justify-between ${padding} dark:text-neutral-dark-very-dark-grayish-blue`}
+            className={`flex justify-between ${darkmodeBg} ${padding} dark:text-neutral-dark-very-dark-grayish-blue rounded-b-lg capitalize text-sm`}
           >
             <div className="">{amount} items left</div>
             <div className="" onClick={clearCompleted}>
@@ -132,28 +124,7 @@ function TodoSection(props: TodoSectionProps) {
             </div>
           </div>
         </div>
-        <div
-          className={`${darkmodeBg} flex justify-center ${gap} ${padding} ${darkmodeText}`}
-        >
-          <div
-            onClick={() => setView("all")}
-            className={view === "all" ? "text-primary-bright-blue" : ""}
-          >
-            All
-          </div>
-          <div
-            onClick={() => setView("active")}
-            className={view === "active" ? "text-primary-bright-blue" : ""}
-          >
-            Active
-          </div>
-          <div
-            onClick={() => setView("completed")}
-            className={view === "completed" ? "text-primary-bright-blue" : ""}
-          >
-            completed
-          </div>
-        </div>
+        <Filters setView={setView} view={view} />
       </form>
     </section>
   );
