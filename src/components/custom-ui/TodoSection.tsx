@@ -1,6 +1,12 @@
 import { useRef, useState } from "react";
 import TodoList, { Todo } from "../Todo/TodoList";
-import { darkmodeBg, gap, padding, roundness } from "../darkmode/colorStyles";
+import {
+  darkmodeBg,
+  gap,
+  padding,
+  roundness,
+  todoBg,
+} from "../darkmode/colorStyles";
 import Filters, { View } from "./Filters";
 
 const initialTodos = [
@@ -90,14 +96,12 @@ function TodoSection(props: TodoSectionProps) {
     completed: todos.filter((todo) => todo.completed),
   };
 
-  const todoBg = "bg-neutral-light-very-light-gray";
-
   return (
     <section className={props.className}>
       <form action="" className={`flex flex-col ${gap}`} onSubmit={onSubmit}>
         <input
           type="text"
-          className={`w-full ${padding} ${roundness}  ${darkmodeBg} `}
+          className={`w-full ${padding} ${roundness} ${darkmodeBg}`}
           placeholder="Create a new todo..."
           onChange={(e) =>
             editTodo({
