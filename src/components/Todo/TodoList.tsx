@@ -20,7 +20,15 @@ function TodoList(props: TodoListProps) {
             defaultChecked={todo.completed}
             onChange={() => props.toggleTodoCompleted(todo.id)}
           />
-          <li className={todo.completed ? "line-through" : ""}>{todo.text}</li>
+          <li
+            className={
+              todo.completed
+                ? "line-through"
+                : "dark:text-neutral-dark-light-grayish-blue"
+            }
+          >
+            {todo.text}
+          </li>
           <button onClick={() => props.removeTodo(todo.id)}>X</button>
         </div>
       ))}
