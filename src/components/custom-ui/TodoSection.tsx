@@ -28,7 +28,7 @@ function TodoSection(props: TodoSectionProps) {
       <form action="" className={`flex flex-col ${gap}`} onSubmit={onSubmit}>
         <input
           type="text"
-          className={`w-full ${padding} ${roundness} ${darkmodeBg}`}
+          className={`w-full ${padding} ${roundness} ${darkmodeBg} dark:text-primary-check-background`}
           placeholder="Create a new todo..."
           onChange={(e) =>
             editTodo({
@@ -46,7 +46,7 @@ function TodoSection(props: TodoSectionProps) {
           />
 
           <div
-            className={`flex justify-between ${todoBg} ${darkmodeBg} ${padding} dark:text-neutral-dark-very-dark-grayish-blue rounded-b-lg capitalize text-sm`}
+            className={`flex justify-between ${todoBg} ${darkmodeBg} ${padding} text-neutral-dark-very-dark-grayish-blue rounded-b-lg capitalize text-sm`}
           >
             <div className="">{amount} items left</div>
             <div className="" onClick={clearCompleted}>
