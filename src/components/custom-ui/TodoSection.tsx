@@ -117,6 +117,7 @@ function TodoSection(props: TodoSectionProps) {
             // takes view from state and passes it to the todos prop
             todos={views[view]}
             toggleTodoCompleted={toggleTodoCompleted}
+            setTodos={setTodos}
             removeTodo={removeTodo}
             className={`${todoBg} ${darkmodeBg} rounded-t-lg shadow-2xl`}
           />

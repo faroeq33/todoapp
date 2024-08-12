@@ -6,7 +6,7 @@ function TodoListItemText({ todo }: { todo: Todo }) {
       ? "line-through"
       : "dark:text-neutral-dark-light-grayish-blue";
 
-  return <li className={completedStyle(todo) + " flex-grow"}>{todo.text}</li>;
+  return <div className={completedStyle(todo) + " flex-grow"}>{todo.text}</div>;
 }
 
 export default TodoListItemText;

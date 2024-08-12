@@ -3,11 +3,11 @@
 - View the optimal layout for the app depending on their device's screen size
 - See hover states for all interactive elements on the page
 
-- Add new todos to the list
-- Mark todos as complete
-- Delete todos from the list
-- Clear all completed todos
-- Toggle light and dark mode
+V Add new todos to the list
+V Mark todos as complete
+V Delete todos from the list
+V Clear all completed todos
+V Toggle light and dark mode
 
 - **Bonus**: Drag and drop to reorder items on the list
 ## Approach
@@ -15,26 +15,34 @@ Functionality first, then representation. Along with the representation, I will 
 
 Concerns
 Functionality
-- Add, delete, complete, clear completed
-- filter by all, active, completed
+V Add, delete, complete, clear completed
+V filter by all, active, completed
 
 Representation
-- Reponsive design
-- darkmode
+~ Reponsive design
+V darkmode
 
 ## functionality
 ~~Add create inputfield~~
-- Calculate `1tems left`
+V Calculate `1tems left`
 - Add Clear Completed method
 
 Add Filters
-- Filter by all/active/complete todos
-- Add filter for All
-- Add filter for Active
-- Add filter for Completed
+V Filter by all/active/complete todos
+V Add filter for All
+V Add filter for Active
+V Add filter for Completed
 
 ## representation
-- Add todosection, where todos are shown
-- Add logo
+V Add todosection, where todos are shown
+V Add logo
 
+
+- Add redorder text & drag by dragging
+
+- Breakdown the animation of reorder todo
+  V Install framer motion
+  - Pick which component to animate
+  - Add animation to the component
+  - Test the animation by dragging the component
 
