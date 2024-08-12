@@ -5,12 +5,19 @@ function BackGroundImage() {
 
   const getThemeImage = () => {
     if (theme === "light") {
-      return "src/assets/images/bg-mobile-light.jpg";
+      return "src/assets/images/bg-desktop-light.jpg";
     }
-    return "src/assets/images/bg-mobile-dark.jpg";
+    return "src/assets/images/bg-desktop-dark.jpg";
   };
 
-  return <img src={getThemeImage()} alt="Chanel Perfume" className="w-full" />;
+  return (
+    <img
+      src={getThemeImage()}
+      alt="Chanel Perfume"
+      className="object-cover w-full"
+      style={{ maxHeight: "30vh" }}
+    />
+  );
 }
 
 export default BackGroundImage;

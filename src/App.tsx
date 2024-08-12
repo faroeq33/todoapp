@@ -9,7 +9,7 @@ function App() {
     <>
       <ThemeProviderWrapper>
         <BackGroundImage />
-        <div className="negativemargin" style={{ marginTop: -150 }}>
+        <div className="max-w-3xl mx-auto" style={{ marginTop: -150 }}>
           <Nav />
           <div className="m-4">
             <main className="flex">
