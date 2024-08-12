@@ -1,17 +1,14 @@
-import { View } from "@/components/custom-ui/Filters";
-import { Todo } from "@/components/Todo/TodoList";
-
-import { createContext, useState, useRef, FC, ReactNode } from "react";
+import { createContext, useState, useRef, FC, ReactNode, useMemo } from "react";
 import { initialTodos } from "./initialTodos";
+import { Todo, TodoContainerType, View } from "./todoTypes";
 
 export const TodoProviderContext = createContext(initialTodos);
 
-function TodoContainer() {
+export function TodoContainer() {
   const lastId = useRef(initialTodos[initialTodos.length - 1].id);
   const [todo, setTodo] = useState<Todo>(initialTodos[0]);
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
-  const [view, setView] = useState<View>("all");
   const amount = todos.filter((todo) => !todo.completed).length;
 
   const addTodos = () => {
@@ -41,10 +38,23 @@ function TodoContainer() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  // Derived state for filtering todos
+  const [view, setView] = useState<View>("all");
+
+  const filterActive = useMemo(
+    () => todos.filter((todo) => !todo.completed),
+    [todos]
+  );
+
+  const filterCompleted = useMemo(
+    () => todos.filter((todo) => todo.completed),
+    [todos]
+  );
+
   const views = {
     all: todos,
-    active: todos.filter((todo) => !todo.completed),
-    completed: todos.filter((todo) => todo.completed),
+    active: filterActive,
+    completed: filterCompleted,
   };
 
   return {
@@ -59,11 +69,10 @@ function TodoContainer() {
     toggleTodoCompleted,
     removeTodo,
     clearCompleted,
+    currentFilterTodos: views[view],
     lastId,
   };
 }
-
-type TodoContainerType = ReturnType<typeof TodoContainer>;
 
 export const TodoContext = createContext<TodoContainerType | undefined>(
   undefined

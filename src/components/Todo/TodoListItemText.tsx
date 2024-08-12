@@ -1,12 +1,17 @@
-import { Todo } from "./TodoList";
+import { Todo } from "@/context/TodoStore/todoTypes";
+import { memo } from "react";
 
-function TodoListItemText({ todo }: { todo: Todo }) {
+const TodoListItemText = memo(function TodoListItemText({
+  todo,
+}: {
+  todo: Todo;
+}) {
   const completedStyle = (todo: Todo) =>
     todo.completed
       ? "line-through"
       : "dark:text-neutral-dark-light-grayish-blue";
 
   return <div className={completedStyle(todo) + " flex-grow"}>{todo.text}</div>;
-}
+});
 
 export default TodoListItemText;

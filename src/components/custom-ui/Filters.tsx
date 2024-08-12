@@ -7,8 +7,6 @@ import {
 } from "../darkmode/colorStyles";
 import useTodo from "@/context/TodoStore/useTodo";
 
-export type View = "all" | "active" | "completed";
-
 type FiltersProps = {
   className?: string;
 };

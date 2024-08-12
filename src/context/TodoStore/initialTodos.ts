@@ -1,4 +1,6 @@
-export const initialTodos = [
+import { Todo } from "./todoTypes";
+
+export const initialTodos: Todo[] = [
   {
     id: 1,
     text: "Complete online JavaScript course",
