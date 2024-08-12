@@ -20,6 +20,9 @@ function TodoList(props: TodoListProps) {
       values={props.todos}
       onReorder={props.setTodos}
       className={cn("shadow-xl", props.className)}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
     >
       {props.todos.map((todo) => (
         <Reorder.Item
