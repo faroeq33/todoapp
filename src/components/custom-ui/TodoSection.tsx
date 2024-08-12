@@ -1,5 +1,5 @@
-import { useRef, useState } from "react";
-import TodoList, { Todo } from "../Todo/TodoList";
+import useTodo from "@/context/TodoStore/useTodo";
+import TodoList from "../Todo/TodoList";
 import {
   darkmodeBg,
   gap,
@@ -7,93 +7,20 @@ import {
   roundness,
   todoBg,
 } from "../darkmode/colorStyles";
-import Filters, { View } from "./Filters";
-
-const initialTodos = [
-  {
-    id: 1,
-    text: "Complete online JavaScript course",
-    completed: true,
-  },
-  {
-    id: 2,
-    text: "Jog around the park 3x",
-    completed: false,
-  },
-  {
-    id: 3,
-    text: "10 minutes meditation",
-    completed: false,
-  },
-  {
-    id: 4,
-    text: "Read for 1 hour",
-    completed: false,
-  },
-  {
-    id: 5,
-    text: "Pick up groceries",
-    completed: false,
-  },
-  {
-    id: 6,
-    text: "Complete Todo App on Frontend Mentor",
-    completed: false,
-  },
-];
+import Filters from "./Filters";
 
 type TodoSectionProps = {
   className: string;
 };
 
 function TodoSection(props: TodoSectionProps) {
-  const lastId = useRef(initialTodos[initialTodos.length - 1].id);
-  const [todo, setTodo] = useState<Todo>(initialTodos[0]);
-  const [todos, setTodos] = useState<Todo[]>(initialTodos);
-
-  const [view, setView] = useState<View>("all");
-  const amount = todos.filter((todo) => !todo.completed).length;
-
-  const addTodos = () => {
-    setTodos([...todos, todo]);
-  };
-
-  const editTodo = (todo: Todo) => {
-    setTodo(todo);
-  };
-
-  const toggleTodoCompleted = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const clearCompleted = () => {
-    setTodos(todos.filter((todo) => !todo.completed));
-  };
-
-  const removeTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const { addTodos, editTodo, clearCompleted, amount, lastId } = useTodo();
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     console.log("submit");
-    console.log("todo", lastId.current);
-    console.log("lastId", lastId.current);
-    if (todo.id !== lastId.current) {
-      addTodos();
-      lastId.current++;
-    }
-  };
-
-  const views = {
-    all: todos,
-    active: todos.filter((todo) => !todo.completed),
-    completed: todos.filter((todo) => todo.completed),
+    addTodos();
   };
 
   return (
@@ -115,10 +42,6 @@ function TodoSection(props: TodoSectionProps) {
         <div className={""}>
           <TodoList
             // takes view from state and passes it to the todos prop
-            todos={views[view]}
-            toggleTodoCompleted={toggleTodoCompleted}
-            setTodos={setTodos}
-            removeTodo={removeTodo}
             className={`${todoBg} ${darkmodeBg} rounded-t-lg shadow-2xl`}
           />
 
@@ -131,7 +54,7 @@ function TodoSection(props: TodoSectionProps) {
             </div>
           </div>
         </div>
-        <Filters setView={setView} view={view} className={todoBg} />
+        <Filters className={todoBg} />
       </form>
     </section>
   );

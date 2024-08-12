@@ -5,18 +5,18 @@ import {
   gap,
   padding,
 } from "../darkmode/colorStyles";
+import useTodo from "@/context/TodoStore/useTodo";
 
 export type View = "all" | "active" | "completed";
 
 type FiltersProps = {
-  view: View;
-  setView: (view: View) => void;
   className?: string;
 };
 
 const hoverState = "hover:text-neutral-dark-light-grayish-blue-hover";
 
-function Filters({ view, setView, ...props }: FiltersProps) {
+function Filters({ ...props }: FiltersProps) {
+  const { view, setView } = useTodo();
   return (
     <div
       className={cn(
