@@ -7,7 +7,7 @@ type FilterLinkProps = PropsWithChildren & {
 };
 
 const FilterLink = ({ children, ...props }: FilterLinkProps) => (
-  <motion.div whileTap={{ scale: 0.8 }} {...props}>
+  <motion.div whileTap={{ scale: 0.9 }} {...props}>
     {children}
   </motion.div>
 );
