@@ -3,6 +3,7 @@ import { Reorder } from "framer-motion";
 import TodoListItemText from "./TodoListItemText";
 import { gap } from "../darkmode/colorStyles";
 import CrossIcon from "../icons/CrossIcon";
+import Checkbox from "../custom-ui/Checkbox";
 
 type TodoItemProps = {
   todo: Todo;
@@ -17,11 +18,14 @@ function TodoItem({ todo, toggleTodoCompleted, removeTodo }: TodoItemProps) {
       className={`flex items-baseline todo-row text-neutral-dark-dark-grayish-blue border-b  border-neutral-dark-very-dark-grayish-blue/10 rounded-t-lg  ${gap}   px-4 py-6`}
       key={todo.id}
     >
-      <input
-        type="checkbox"
-        defaultChecked={todo.completed}
-        onChange={() => toggleTodoCompleted(todo.id)}
+      <Checkbox
+        id={`todoitem-` + todo.id}
+        // label={"label-" + todo.id}
+        checked={todo.completed}
+        // defaultChecked={todo.completed}
+        onClick={() => toggleTodoCompleted(todo.id)}
       />
+
       <TodoListItemText todo={todo} />
       <div className="">
         <button onClick={() => removeTodo(todo.id)}>
