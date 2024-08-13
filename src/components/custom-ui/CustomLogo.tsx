@@ -1,6 +1,11 @@
 function CustomLogo() {
   return (
-    <div className="text-4xl tracking-widest text-white uppercase logo font-custom">
+    <div
+      className="text-4xl font-bold tracking-widest text-white uppercase logo font-custom"
+      style={{
+        letterSpacing: "0.3em",
+      }}
+    >
       Todo
     </div>
   );
