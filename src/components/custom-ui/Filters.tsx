@@ -6,6 +6,8 @@ import {
   padding,
 } from "../darkmode/colorStyles";
 import useTodo from "@/context/TodoStore/useTodo";
+import { PropsWithChildren } from "react";
+import { motion } from "framer-motion";
 
 type FiltersProps = {
   className?: string;
@@ -22,7 +24,7 @@ function Filters({ ...props }: FiltersProps) {
         props.className
       )}
     >
-      <a
+      <FilterLink
         onClick={() => setView("all")}
         className={
           view === "all"
@@ -31,8 +33,8 @@ function Filters({ ...props }: FiltersProps) {
         }
       >
         All
-      </a>
-      <div
+      </FilterLink>
+      <FilterLink
         onClick={() => setView("active")}
         className={
           view === "active"
@@ -41,8 +43,8 @@ function Filters({ ...props }: FiltersProps) {
         }
       >
         Active
-      </div>
-      <div
+      </FilterLink>
+      <FilterLink
         onClick={() => setView("completed")}
         className={
           view === "completed"
@@ -51,9 +53,20 @@ function Filters({ ...props }: FiltersProps) {
         }
       >
         completed
-      </div>
+      </FilterLink>
     </div>
   );
 }
+
+type FilterLinkProps = PropsWithChildren & {
+  className?: string;
+  onClick: () => void;
+};
+
+const FilterLink = ({ children, ...props }: FilterLinkProps) => (
+  <motion.div whileTap={{ scale: 0.8 }} {...props}>
+    {children}
+  </motion.div>
+);
 
 export default Filters;
