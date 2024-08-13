@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 type ClearButtonProps = {
   className?: string;
   onClick: () => void;
@@ -5,7 +7,11 @@ type ClearButtonProps = {
 };
 
 function ClearButton({ children, ...props }: ClearButtonProps) {
-  return <div {...props}>{children ? children : "Clear Completed"}</div>;
+  return (
+    <motion.div whileTap={{ scale: 0.9 }} {...props}>
+      {children ? children : "Clear Completed"}
+    </motion.div>
+  );
 }
 
 export default ClearButton;

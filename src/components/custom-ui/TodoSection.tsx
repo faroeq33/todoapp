@@ -8,6 +8,7 @@ import {
   todoBg,
 } from "../darkmode/colorStyles";
 import Filters from "./Filters";
+import ClearButton from "./ClearButton";
 
 type TodoSectionProps = {
   className: string;
@@ -49,9 +50,9 @@ function TodoSection(props: TodoSectionProps) {
             className={`flex justify-between ${todoBg} ${darkmodeBg} ${padding} text-neutral-dark-very-dark-grayish-blue rounded-b-lg capitalize text-sm`}
           >
             <div className="">{amount} items left</div>
-            <div className="" onClick={clearCompleted}>
+            <ClearButton className="" onClick={clearCompleted}>
               clear completed
-            </div>
+            </ClearButton>
           </div>
         </div>
         <Filters className={todoBg} />
