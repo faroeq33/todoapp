@@ -2,8 +2,8 @@ import { Todo, TodoContainerType } from "@/context/TodoStore/todoTypes";
 import { Reorder } from "framer-motion";
 import TodoItemText from "./TodoItemText";
 import { gap } from "../darkmode/colorStyles";
-import CrossIcon from "../icons/CrossIcon";
-import Checkbox from "../custom-ui/Checkbox";
+import CrossIcon from "../../icons/CrossIcon";
+import Checkbox from "../../custom-ui/Checkbox";
 
 type TodoItemProps = {
   todo: Todo;

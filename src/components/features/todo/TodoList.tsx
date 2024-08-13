@@ -1,7 +1,6 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, Reorder } from "framer-motion";
 import useTodo from "@/context/TodoStore/useTodo";
-import TodoItem from "./TodoItem";
 
 type TodoListProps = {
   className: string;
