@@ -1,26 +1,33 @@
 import { cn } from "@/lib/utils";
+
+import useTodo from "@/components/features/todo/TodoStore/useTodo";
+import { View } from "@/components/features/todo/TodoStore/todoTypes";
+import FilterLink from "./FilterLink";
 import {
   darkmodeBg,
   darkmodeText,
   gap,
   padding,
-} from "../../darkmode/colorStyles";
-import useTodo from "@/context/TodoStore/useTodo";
-import { View } from "@/context/TodoStore/todoTypes";
-import FilterLink from "./FilterLink";
+} from "@/components/features/darkmode/colorStyles";
 
 type FiltersProps = {
   className?: string;
 };
 
-const myFilters: { view: View }[] = [
+const myFilters: {
+  id: number;
+  view: View;
+}[] = [
   {
+    id: 1,
     view: "all",
   },
   {
+    id: 2,
     view: "active",
   },
   {
+    id: 3,
     view: "completed",
   },
 ];
@@ -36,6 +43,7 @@ function Filters({ ...props }: FiltersProps) {
     >
       {myFilters.map((filter) => (
         <FilterLink
+          key={filter.id}
           onClick={() => setView(filter.view)}
           className={cn(
             "hover:text-neutral-dark-light-grayish-blue-hover",

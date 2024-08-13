@@ -1,14 +1,15 @@
-import useTodo from "@/context/TodoStore/useTodo";
-import TodoList from "../darkmode/todo/todo/TodoList";
+import useTodo from "@/components/features/todo/TodoStore/useTodo";
+
+import Filters from "./Filters/Filters";
+import ClearButton from "./ClearButton";
 import {
   darkmodeBg,
   gap,
   padding,
   roundness,
   todoBg,
-} from "../darkmode/colorStyles";
-import Filters from "./Filters/Filters";
-import ClearButton from "./ClearButton";
+} from "../features/darkmode/colorStyles";
+import TodoList from "../features/todo/TodoList";
 
 type TodoSectionProps = {
   className: string;

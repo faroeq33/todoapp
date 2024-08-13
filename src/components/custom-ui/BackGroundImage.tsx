@@ -1,4 +1,4 @@
-import useTheme from "../darkmode/useTheme";
+import useTheme from "../features/darkmode/theme-context/useTheme";
 
 function BackGroundImage() {
   const { theme } = useTheme();

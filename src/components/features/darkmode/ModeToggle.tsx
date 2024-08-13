@@ -5,9 +5,8 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import MoonIcon from "../icons/MoonIcon";
-import SunIcon from "../icons/SunIcon";
-import useTheme from "./useTheme";
+import useTheme from "./theme-context/useTheme";
+import { MoonIcon, SunIcon } from "lucide-react";
 
 export function ModeToggle() {
   const { setTheme } = useTheme();

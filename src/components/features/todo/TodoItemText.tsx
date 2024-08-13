@@ -1,4 +1,4 @@
-import { Todo } from "@/context/TodoStore/todoTypes";
+import { Todo } from "@/components/features/todo/TodoStore/todoTypes";
 import { memo } from "react";
 
 type TodoItemTextProps = {

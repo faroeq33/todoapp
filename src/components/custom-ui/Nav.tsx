@@ -1,4 +1,4 @@
-import { ModeToggle } from "../darkmode/ModeToggle";
+import { ModeToggle } from "../features/darkmode/ModeToggle";
 import CustomLogo from "./CustomLogo";
 
 function Nav() {

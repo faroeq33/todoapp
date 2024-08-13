@@ -1,9 +1,9 @@
-import { Todo, TodoContainerType } from "@/context/TodoStore/todoTypes";
 import { Reorder } from "framer-motion";
 import TodoItemText from "./TodoItemText";
-import { gap } from "../darkmode/colorStyles";
-import CrossIcon from "../../icons/CrossIcon";
+import CrossIcon from "../../../assets/icons/CrossIcon";
 import Checkbox from "../../custom-ui/Checkbox";
+import { Todo, TodoContainerType } from "./TodoStore/todoTypes";
+import { gap } from "../darkmode/colorStyles";
 
 type TodoItemProps = {
   todo: Todo;
@@ -16,7 +16,7 @@ function TodoItem({ todo, toggleTodoCompleted, removeTodo }: TodoItemProps) {
   return (
     <Reorder.Item
       value={todo}
-      className={`flex items-baseline todo-row text-neutral-dark-dark-grayish-blue border-b  border-neutral-dark-very-dark-grayish-blue/10 rounded-t-lg  ${gap}   px-4 py-6`}
+      className={`flex items-baseline todo-row text-neutral-dark-dark-grayish-blue border-b  border-neutral-dark-very-dark-grayish-blue/10 rounded-t-lg ${gap} px-4 py-6`}
       key={todo.id}
     >
       <Checkbox
