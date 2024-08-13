@@ -1,7 +1,7 @@
-import BackGroundImage from "./components/custom-ui/BackGroundImage";
-import Nav from "./components/custom-ui/Nav";
-import TodoSection from "./components/custom-ui/TodoSection";
-import ThemeProviderWrapper from "./components/features/darkmode/theme-context/ThemeProviderWrapper";
+import BackGroundImage from "./components/custom-ui/header/BackGroundImage";
+import Nav from "./components/custom-ui/partials/Nav";
+import TodoSection from "./components/custom-ui/partials/TodoSection";
+import ThemeProviderWrapper from "@/components/features/darkmode/theme-context/ThemeContextWrapper";
 import { TodoProvider } from "./components/features/todo/todostore/TodoContext";
 
 function App() {

@@ -1,4 +1,4 @@
-import { ThemeProvider } from "./ThemeProvider";
+import { ThemeProvider } from "./ThemeContext";
 
 type ThemeProviderWrapperProps = {
   children: React.ReactNode;

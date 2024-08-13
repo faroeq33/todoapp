@@ -1,5 +1,5 @@
-import { ModeToggle } from "../features/darkmode/ModeToggle";
-import CustomLogo from "./CustomLogo";
+import { ModeToggle } from "../../features/darkmode/ModeToggle";
+import CustomLogo from "../header/CustomLogo";
 
 function Nav() {
   return (

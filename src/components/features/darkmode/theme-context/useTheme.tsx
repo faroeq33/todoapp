@@ -1,8 +1,11 @@
+/*
+ This hook is seperated to prevent the react-refresh error
+*/
 import { useContext } from "react";
-import { ThemeProviderContext } from "./ThemeProvider";
+import { ThemeContext } from "./ThemeContext";
 
 const useTheme = () => {
-  const context = useContext(ThemeProviderContext);
+  const context = useContext(ThemeContext);
 
   if (context === undefined)
     throw new Error("useTheme must be used within a ThemeProvider");

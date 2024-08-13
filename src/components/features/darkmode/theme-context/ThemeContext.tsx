@@ -2,24 +2,23 @@ import { createContext, useEffect, useState } from "react";
 
 type Theme = "dark" | "light" | "system";
 
+type ThemeState = {
+  theme: Theme;
+  setTheme: (theme: Theme) => void;
+};
+
+const initialState: ThemeState = {
+  theme: "light",
+  setTheme: () => null,
+};
+
+export const ThemeContext = createContext<ThemeState>(initialState);
+
 type ThemeProviderProps = {
   children: React.ReactNode;
   defaultTheme?: Theme;
   storageKey?: string;
 };
-
-type ThemeProviderState = {
-  theme: Theme;
-  setTheme: (theme: Theme) => void;
-};
-
-const initialState: ThemeProviderState = {
-  theme: "light",
-  setTheme: () => null,
-};
-
-export const ThemeProviderContext =
-  createContext<ThemeProviderState>(initialState);
 
 export function ThemeProvider({
   children,
@@ -49,17 +48,18 @@ export function ThemeProvider({
     root.classList.add(theme);
   }, [theme]);
 
-  const value = {
-    theme,
-    setTheme: (theme: Theme) => {
-      localStorage.setItem(storageKey, theme);
-      setTheme(theme);
-    },
-  };
-
   return (
-    <ThemeProviderContext.Provider {...props} value={value}>
+    <ThemeContext.Provider
+      {...props}
+      value={{
+        theme,
+        setTheme: (theme: Theme) => {
+          localStorage.setItem(storageKey, theme);
+          setTheme(theme);
+        },
+      }}
+    >
       {children}
-    </ThemeProviderContext.Provider>
+    </ThemeContext.Provider>
   );
 }
