@@ -1,6 +1,6 @@
 import { Todo, TodoContainerType } from "@/context/TodoStore/todoTypes";
 import { Reorder } from "framer-motion";
-import TodoListItemText from "./TodoListItemText";
+import TodoItemText from "./TodoItemText";
 import { gap } from "../darkmode/colorStyles";
 import CrossIcon from "../icons/CrossIcon";
 import Checkbox from "../custom-ui/Checkbox";
@@ -12,6 +12,7 @@ type TodoItemProps = {
 };
 
 function TodoItem({ todo, toggleTodoCompleted, removeTodo }: TodoItemProps) {
+  const toggleComplete = () => toggleTodoCompleted(todo.id);
   return (
     <Reorder.Item
       value={todo}
@@ -23,10 +24,10 @@ function TodoItem({ todo, toggleTodoCompleted, removeTodo }: TodoItemProps) {
         // label={"label-" + todo.id}
         checked={todo.completed}
         // defaultChecked={todo.completed}
-        onClick={() => toggleTodoCompleted(todo.id)}
+        onClick={toggleComplete}
       />
 
-      <TodoListItemText todo={todo} />
+      <TodoItemText todo={todo} onClick={toggleComplete} />
       <div className="">
         <button onClick={() => removeTodo(todo.id)}>
           <CrossIcon />

@@ -10,7 +10,10 @@ export type CheckboxProps = {
 
 // enters: { opacity: 0, scale: 0.5 },
 const Checkbox = ({ checked, ...props }: CheckboxProps) => (
-  <div className="w-4 h-4 mt-1 appearance-none peer shrink-0" {...props}>
+  <div
+    className="w-4 h-4 mt-1 appearance-none cursor-pointer peer shrink-0"
+    {...props}
+  >
     <AnimatePresence>
       {checked ? (
         <motion.div
