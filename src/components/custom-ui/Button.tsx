@@ -1,12 +1,15 @@
+import CommonProps from "@/types/common";
+
 type ButtonProps = {
   children: React.ReactNode;
   onClick?: () => void;
 };
-function Button(props: ButtonProps) {
+
+function Button(props: CommonProps & ButtonProps) {
   return (
     <>
       <button
-        className="bg-primary-dark-cyan rounded-lg text-center w-full py-2 text-white font-bold"
+        className="w-full py-2 font-bold text-center text-white rounded-lg bg-primary-dark-cyan"
         onClick={props.onClick}
       >
         {props.children}
