@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 
-import useTodo from "@/components/features/todo/TodoStore/useTodo";
-import { View } from "@/components/features/todo/TodoStore/todoTypes";
+import useTodo from "@/components/features/todo/todostore/useTodo";
+import { View } from "@/components/features/todo/todostore/todoTypes";
 import FilterLink from "./FilterLink";
 import {
   darkmodeBg,

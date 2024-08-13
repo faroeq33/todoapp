@@ -2,7 +2,7 @@ import { Reorder } from "framer-motion";
 import TodoItemText from "./TodoItemText";
 import CrossIcon from "../../../assets/icons/CrossIcon";
 import Checkbox from "../../custom-ui/Checkbox";
-import { Todo, TodoContainerType } from "./TodoStore/todoTypes";
+import { Todo, TodoContainerType } from "./todostore/todoTypes";
 import { gap } from "../darkmode/colorStyles";
 
 type TodoItemProps = {

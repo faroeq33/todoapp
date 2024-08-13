@@ -1,7 +1,7 @@
-import useTodo from "@/components/features/todo/TodoStore/useTodo";
+import useTodo from "@/components/features/todo/todostore/useTodo";
 
-import Filters from "./Filters/Filters";
-import ClearButton from "./ClearButton";
+import Filters from "./filters/Filters";
+import ClearButton from "./buttons/ClearButton";
 import {
   darkmodeBg,
   gap,
