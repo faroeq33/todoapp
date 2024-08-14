@@ -15,7 +15,7 @@ const Checkbox = ({ checked, ...props }: CheckboxProps) => (
     className="w-4 h-4 mt-1 appearance-none cursor-pointer peer shrink-0"
     {...props}
   >
-    <AnimatePresence mode="wait">
+    <AnimatePresence>
       {checked ? (
         <motion.div
           initial={{ opacity: 0 }}

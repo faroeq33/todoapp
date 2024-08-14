@@ -1,4 +1,12 @@
-import { createContext, useState, useRef, FC, ReactNode, useMemo } from "react";
+import {
+  createContext,
+  useState,
+  useRef,
+  FC,
+  ReactNode,
+  useMemo,
+  useCallback,
+} from "react";
 import { initialTodos } from "./initialTodos";
 import { Todo, TodoContainerType, View } from "./todoTypes";
 
@@ -6,37 +14,37 @@ export const TodoProviderContext = createContext(initialTodos);
 
 export function TodoContainer() {
   const lastId = useRef(initialTodos[initialTodos.length - 1].id);
-  const [todo, setTodo] = useState<Todo>(initialTodos[0]);
   const [todos, setTodos] = useState<Todo[]>(initialTodos);
 
   const amount = todos.filter((todo) => !todo.completed).length;
 
-  const addTodos = () => {
+  const addTodos = (todo: Todo) => {
     if (todo.id !== lastId.current) {
       setTodos([...todos, todo]);
       lastId.current++;
     }
   };
+  const toggleTodoCompleted = useCallback(
+    (id: number) => {
+      setTodos(
+        todos.map((todo) =>
+          todo.id === id ? { ...todo, completed: !todo.completed } : todo
+        )
+      );
+    },
+    [todos]
+  );
 
-  const editTodo = (todo: Todo) => {
-    setTodo(todo);
-  };
-
-  const toggleTodoCompleted = (id: number) => {
-    setTodos(
-      todos.map((todo) =>
-        todo.id === id ? { ...todo, completed: !todo.completed } : todo
-      )
-    );
-  };
-
-  const clearCompleted = () => {
+  const clearCompleted = useCallback(() => {
     setTodos(todos.filter((todo) => !todo.completed));
-  };
+  }, [todos]);
 
-  const removeTodo = (id: number) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
-  };
+  const removeTodo = useCallback(
+    (id: number) => {
+      setTodos(todos.filter((todo) => todo.id !== id));
+    },
+    [todos]
+  );
 
   // Derived state for filtering todos
   const [view, setView] = useState<View>("all");
@@ -62,10 +70,9 @@ export function TodoContainer() {
     view,
     views,
     amount,
+    addTodos,
     setTodos,
     setView,
-    addTodos,
-    editTodo,
     toggleTodoCompleted,
     removeTodo,
     clearCompleted,
