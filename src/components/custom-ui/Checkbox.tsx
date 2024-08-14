@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from "framer-motion";
-import { Check, Circle } from "lucide-react";
+import { Check } from "lucide-react";
 import CustomCircle from "./CustomCircle";
 import { darkmodeBg, todoBg } from "../features/darkmode/colorStyles";
-import { CSSProperties } from "react";
 
 export type CheckboxProps = {
   disabled?: boolean;
@@ -16,7 +15,7 @@ const Checkbox = ({ checked, ...props }: CheckboxProps) => (
     className="w-4 h-4 mt-1 appearance-none cursor-pointer peer shrink-0"
     {...props}
   >
-    <AnimatePresence>
+    <AnimatePresence mode="wait">
       {checked ? (
         <motion.div
           initial={{ opacity: 0 }}
