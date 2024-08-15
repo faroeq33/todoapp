@@ -5,9 +5,9 @@ function BackGroundImage() {
 
   const getThemeImage = () => {
     if (theme === "light") {
-      return "src/assets/images/bg-desktop-light.jpg";
+      return "/images/bg-desktop-light.jpg";
     }
-    return "src/assets/images/bg-desktop-dark.jpg";
+    return "/images/bg-desktop-dark.jpg";
   };
 
   return (
