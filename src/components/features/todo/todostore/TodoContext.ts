@@ -22,7 +22,6 @@ const useTodoStoreBase = create<TodoStore>((set) => ({
   addTodos: (todo) => {
     set((state) => ({
       todos: [...state.todos, todo],
-      // amount: state.amount + 1,
       lastId: { current: state.lastId.current + 1 },
     }));
   },
