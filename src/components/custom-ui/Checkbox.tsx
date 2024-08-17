@@ -17,19 +17,17 @@ const Checkbox = ({ checked, ...props }: CheckboxProps) => (
   >
     <AnimatePresence>
       {checked ? (
+        <CheckedIcon />
+      ) : (
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           whileTap={{ scaleX: 0.9 }}
-          children={<CheckedIcon />}
+          children={<UncheckedIcon />}
         />
-      ) : (
-        <UncheckedIcon />
       )}
     </AnimatePresence>
-    {/* <CircleCheckBig fill="red" /> */}
-    {/* {checked ? <CircleCheckBig /> : <Circle />} */}
   </div>
 );
 

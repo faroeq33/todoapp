@@ -2,10 +2,10 @@ import { darkmodeBg, padding, roundness } from "../darkmode/colorStyles";
 import { memo, useState } from "react";
 import { Todo } from "./todostore/todoTypes";
 import { initialTodos } from "./todostore/initialTodos";
-import useTodo from "./todostore/useTodo";
+import { useTodoStore } from "./todostore/TodoContext";
 
 function AddTodoField() {
-  const { addTodos, lastId } = useTodo();
+  const { lastId, addTodos } = useTodoStore();
   const [todo, setTodo] = useState<Todo>(initialTodos[0]);
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {

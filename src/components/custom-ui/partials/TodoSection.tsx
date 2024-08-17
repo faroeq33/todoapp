@@ -1,5 +1,3 @@
-import useTodo from "@/components/features/todo/todostore/useTodo";
-
 import Filters from "../filters/Filters";
 import ClearButton from "../buttons/ClearButton";
 import {
@@ -10,13 +8,18 @@ import {
 } from "../../features/darkmode/colorStyles";
 import TodoList from "../../features/todo/TodoList";
 import AddTodoField from "@/components/features/todo/AddTodoField";
+import { useTodoStore } from "@/components/features/todo/todostore/TodoContext";
+import { useSyncExternalStore } from "react";
 
 type TodoSectionProps = {
   className: string;
 };
 
 function TodoSection(props: TodoSectionProps) {
-  const { clearCompleted, amount } = useTodo();
+  const { clearCompleted, amount } = useSyncExternalStore(
+    useTodoStore.subscribe,
+    useTodoStore.getState
+  );
 
   return (
     <section className={props.className}>

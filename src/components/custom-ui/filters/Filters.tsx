@@ -1,6 +1,5 @@
 import { cn } from "@/lib/utils";
 
-import useTodo from "@/components/features/todo/todostore/useTodo";
 import { View } from "@/components/features/todo/todostore/todoTypes";
 import FilterLink from "./FilterLink";
 import {
@@ -10,6 +9,7 @@ import {
   padding,
 } from "@/components/features/darkmode/colorStyles";
 import { memo } from "react";
+import { useTodoStore } from "@/components/features/todo/todostore/TodoContext";
 
 type FiltersProps = {
   className?: string;
@@ -34,7 +34,8 @@ const myFilters: {
 ];
 
 function Filters({ ...props }: FiltersProps) {
-  const { view, setView } = useTodo();
+  const { view, setView } = useTodoStore();
+
   return (
     <div
       className={cn(
