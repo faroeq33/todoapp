@@ -9,17 +9,14 @@ import {
 import TodoList from "../../features/todo/TodoList";
 import AddTodoField from "@/components/features/todo/AddTodoField";
 import { useTodoStore } from "@/components/features/todo/todostore/TodoContext";
-import { useSyncExternalStore } from "react";
 
 type TodoSectionProps = {
   className: string;
 };
 
 function TodoSection(props: TodoSectionProps) {
-  const { clearCompleted, amount } = useSyncExternalStore(
-    useTodoStore.subscribe,
-    useTodoStore.getState
-  );
+  const { clearCompleted, todos } = useTodoStore();
+  const amount: number = todos.filter((todo) => !todo.completed).length;
 
   return (
     <section className={props.className}>

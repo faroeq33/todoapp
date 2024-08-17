@@ -5,7 +5,7 @@ import createSelectors from "./createSelector";
 
 type TodoStore = {
   todos: Todo[];
-  amount: number;
+  // amount: number;
   addTodos: (todo: Todo) => void;
   setTodos: () => void;
   toggleTodoCompleted: (id: number) => void;
@@ -19,11 +19,10 @@ type TodoStore = {
 
 const useTodoStoreBase = create<TodoStore>((set) => ({
   todos: initialTodos,
-  amount: initialTodos.filter((todo) => !todo.completed).length,
   addTodos: (todo) => {
     set((state) => ({
       todos: [...state.todos, todo],
-      amount: state.amount + 1,
+      // amount: state.amount + 1,
       lastId: { current: state.lastId.current + 1 },
     }));
   },
