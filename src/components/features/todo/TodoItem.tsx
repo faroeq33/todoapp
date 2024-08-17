@@ -4,7 +4,7 @@ import CrossIcon from "../../../assets/icons/CrossIcon";
 import Checkbox from "../../custom-ui/Checkbox";
 import { Todo } from "./todostore/todoTypes";
 import { gap } from "../darkmode/colorStyles";
-import { useTodoStore } from "./todostore/TodoContext";
+import { useTodoStore } from "./todostore/TodoStore";
 
 type TodoItemProps = {
   todo: Todo;

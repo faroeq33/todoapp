@@ -2,7 +2,7 @@ import { darkmodeBg, padding, roundness } from "../darkmode/colorStyles";
 import { memo, useState } from "react";
 import { Todo } from "./todostore/todoTypes";
 import { initialTodos } from "./todostore/initialTodos";
-import { useTodoStore } from "./todostore/TodoContext";
+import { useTodoStore } from "./todostore/TodoStore";
 
 function AddTodoField() {
   const { lastId, addTodos } = useTodoStore();

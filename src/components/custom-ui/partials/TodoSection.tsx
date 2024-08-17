@@ -8,7 +8,7 @@ import {
 } from "../../features/darkmode/colorStyles";
 import TodoList from "../../features/todo/TodoList";
 import AddTodoField from "@/components/features/todo/AddTodoField";
-import { useTodoStore } from "@/components/features/todo/todostore/TodoContext";
+import { useTodoStore } from "@/components/features/todo/todostore/TodoStore";
 
 type TodoSectionProps = {
   className: string;

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { AnimatePresence, Reorder } from "framer-motion";
 import TodoItem from "./TodoItem";
-import { useTodoStore } from "./todostore/TodoContext";
+import { useTodoStore } from "./todostore/TodoStore";
 import { darkmodeBg, todoBg } from "../darkmode/colorStyles";
 import { useMemo } from "react";
 

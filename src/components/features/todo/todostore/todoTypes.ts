@@ -1,5 +1,3 @@
-import { TodoContainer } from "./TodoContext";
-
 export type Todo = {
   id: number;
   text: string;
@@ -7,5 +5,3 @@ export type Todo = {
 };
 
 export type View = "all" | "active" | "completed";
-
-export type TodoContainerType = ReturnType<typeof TodoContainer>;

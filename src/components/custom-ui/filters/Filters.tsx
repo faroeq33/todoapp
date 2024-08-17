@@ -9,7 +9,7 @@ import {
   padding,
 } from "@/components/features/darkmode/colorStyles";
 import { memo } from "react";
-import { useTodoStore } from "@/components/features/todo/todostore/TodoContext";
+import { useTodoStore } from "@/components/features/todo/todostore/TodoStore";
 
 type FiltersProps = {
   className?: string;
