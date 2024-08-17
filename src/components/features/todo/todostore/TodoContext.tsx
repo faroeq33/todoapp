@@ -18,12 +18,15 @@ export function TodoContainer() {
 
   const amount = todos.filter((todo) => !todo.completed).length;
 
-  const addTodos = (todo: Todo) => {
-    if (todo.id !== lastId.current) {
-      setTodos([...todos, todo]);
-      lastId.current++;
-    }
-  };
+  const addTodos = useCallback(
+    (todo: Todo) => {
+      if (todo.id !== lastId.current) {
+        setTodos([...todos, todo]);
+        lastId.current++;
+      }
+    },
+    [todos]
+  );
   const toggleTodoCompleted = useCallback(
     (id: number) => {
       setTodos(
@@ -59,11 +62,14 @@ export function TodoContainer() {
     [todos]
   );
 
-  const views = {
-    all: todos,
-    active: filterActive,
-    completed: filterCompleted,
-  };
+  const views = useMemo(
+    () => ({
+      all: todos,
+      active: filterActive,
+      completed: filterCompleted,
+    }),
+    [todos, filterActive, filterCompleted]
+  );
 
   return {
     todos,

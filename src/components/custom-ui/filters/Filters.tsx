@@ -9,6 +9,7 @@ import {
   gap,
   padding,
 } from "@/components/features/darkmode/colorStyles";
+import { memo } from "react";
 
 type FiltersProps = {
   className?: string;
@@ -57,4 +58,4 @@ function Filters({ ...props }: FiltersProps) {
   );
 }
 
-export default Filters;
+export default memo(Filters);
