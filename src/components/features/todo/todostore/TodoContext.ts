@@ -5,7 +5,6 @@ import createSelectors from "./createSelector";
 
 type TodoStore = {
   todos: Todo[];
-  // amount: number;
   addTodos: (todo: Todo) => void;
   setTodos: () => void;
   toggleTodoCompleted: (id: number) => void;
