@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "johndoe",
+      "email": "johndoe@example.com",
+      "password_hash": "$2a$10$E2NqBdVh1OT5Hg/9e2dhpeb2HZ.3.e9jx.RjXYe5F1/Yu6eZ6JgJO",
+      "created_at": "2024-08-01T10:15:30Z",
+      "updated_at": "2024-08-01T10:15:30Z"
+    },
+    {
+      "id": "2",
+      "username": "janedoe",
+      "email": "janedoe@example.com",
+      "password_hash": "$2a$10$N9Qo8uLOickgx2ZMRZoMyeNhQbwb5e3cPs5D.KcxpC5HOG/XuJ6W6",
+      "created_at": "2024-08-02T11:20:45Z",
+      "updated_at": "2024-08-02T11:20:45Z"
+    }
+  ],
+  "todo_lists": [
+    {
+      "id": "1",
+      "user_id": "1",
+      "title": "Work Tasks",
+      "created_at": "2024-08-03T08:00:00Z",
+      "updated_at": "2024-08-03T08:00:00Z"
+    },
+    {
+      "id": "2",
+      "user_id": "1",
+      "title": "Grocery List",
+      "created_at": "2024-08-04T09:30:00Z",
+      "updated_at": "2024-08-04T09:30:00Z"
+    },
+    {
+      "id": "3",
+      "user_id": "2",
+      "title": "Vacation Planning",
+      "created_at": "2024-08-05T14:15:00Z",
+      "updated_at": "2024-08-05T14:15:00Z"
+    }
+  ],
+  "todo_items": [
+    {
+      "id": "1",
+      "todo_list_id": "1",
+      "description": "Finish the quarterly report",
+      "is_completed": false,
+      "due_date": "2024-08-10",
+      "created_at": "2024-08-03T08:10:00Z",
+      "updated_at": "2024-08-03T08:10:00Z"
+    },
+    {
+      "id": "2",
+      "todo_list_id": "2",
+      "description": "Buy milk",
+      "is_completed": true,
+      "due_date": "2024-08-04",
+      "created_at": "2024-08-04T09:35:00Z",
+      "updated_at": "2024-08-04T09:35:00Z"
+    },
+    {
+      "id": "3",
+      "todo_list_id": "3",
+      "description": "Book flights",
+      "is_completed": false,
+      "due_date": "2024-08-20",
+      "created_at": "2024-08-05T14:20:00Z",
+      "updated_at": "2024-08-05T14:20:00Z"
+    }
+  ]
+}
